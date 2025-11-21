@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -20,11 +20,11 @@ public class Click : MonoBehaviour
     private bool reward4 = false;
     private bool reward5 = false;
     private Volume volume;
-    public void Update()
-    {
-        clickA.GetComponent<AudioSource>().volume = volume.volume;
-        rewardA.GetComponent<AudioSource>().volume = volume.volume;
-    }
+    //public void Update()
+    //{
+    //    clickA.GetComponent<AudioSource>().volume = volume.volume;
+    //    rewardA.GetComponent<AudioSource>().volume = volume.volume;
+    //}
     public void moseClick()
     {
         namber += clickCount;
