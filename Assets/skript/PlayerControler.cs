@@ -36,7 +36,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _isCollide)
+        if (Input.GetKeyDown(KeyCode.Space) && _isCollide && ship.GameOver == false)
         {
             print("paskacaty");
             if (gravity == true)
@@ -54,30 +54,25 @@ public class PlayerControler : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)  && ship.GameOver == false)
         {
             phy.AddForce(transform.right * speed);
             animator.SetBool("Right",true);
             animator.SetBool("Left", false);
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A)  && ship.GameOver == false)
         {
             phy.AddForce(-transform.right * speed);
             animator.SetBool("Left", true);
-            animator.SetBool("Right", false);
-        }
-        else
-        {
-            animator.SetBool("Left", false);
             animator.SetBool("Right", false);
         }
     }
 
     void limitSpeed()
     {
-        if (phy.linearVelocity.magnitude > _maxSpeed)
+        if (phy.velocity.magnitude > _maxSpeed)
         {
-            phy.linearVelocity = phy.linearVelocity.normalized * _maxSpeed;
+            phy.velocity = phy.velocity.normalized * _maxSpeed;
         }
     }
 }
